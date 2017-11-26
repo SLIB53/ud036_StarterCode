@@ -15,11 +15,12 @@ def main():
     Generates HTML files, and outputs to build folder. Existing build files
     and folder are overwritten.
     """
-    try:
+
+    if not os.path.isdir("build"):
         os.mkdir("build")
-    finally:
-        os.chdir("build")
-        lib.fresh_tomatoes.open_movies_page(data.entertainment_center.MOVIES)
+
+    os.chdir("build")
+    lib.fresh_tomatoes.open_movies_page(data.entertainment_center.MOVIES)
 
 if __name__ == "__main__":
     main()
